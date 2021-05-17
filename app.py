@@ -1,10 +1,23 @@
 
 from flask import Flask
 from flask import jsonify
+from flask import render_template
 
 app = Flask(__name__)
 
 from products import products
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/templates/graficas')
+def graficas():
+    return render_template('graficas.html')
+
+@app.route('/templates/tablas')
+def tablas():
+    return render_template('tabla.html')
 
 @app.route('/ping')
 def ping():
@@ -19,4 +32,4 @@ def getProduct():
     return jsonify({""})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=4000);
+    app.run(debug=True, port=4000) #debug true lo que hace es que cada vez que cambie algo se reinicia
