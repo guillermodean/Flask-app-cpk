@@ -19,17 +19,19 @@ def graficas():
 def tablas():
     return render_template('tabla.html')
 
-@app.route('/ping')
-def ping():
-    return jsonify({"message": "pong"})
+#PARA LANZAR LOS USUARIOS Y LAS CONEXIONES
 
-@app.route('/products')
-def getProducts():
-    return jsonify({"products": products, "message": "product list"})
+# @app.route('/ping')
+# def ping():
+#     return jsonify({"message": "pong"})
 
-@app.route('/products/<string:product_name>')
-def getProduct():
-    return jsonify({""})
+# @app.route('/products')
+# def getProducts():
+#     return jsonify({"products": products, "message": "product list"})
+
+# @app.route('/products/<string:product_name>')
+# def getProduct():
+#     return jsonify({""})
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000) #debug true lo que hace es que cada vez que cambie algo se reinicia
