@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container align-self-center m-4 p-2">
+    <form action="/añadir_cpk" method="POST">
+        <div class="form-group">
+            <label for="id">Introduce el boton</label>
+            <input type="text" name="Button" placeholder="Boton" id="Button" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="seat">Introduce el modelo del asiento</label>
+            <input type="text" name="seat" placeholder="modelo" id="seat" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="cpk">Introduce el resultado cpk</label>
+            <input type="text" name="cpk" placeholder="resultado" id="cpk" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mt-5">enviar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
