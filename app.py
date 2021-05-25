@@ -2,6 +2,7 @@
 from flask import Flask, url_for, redirect, flash
 from flask import jsonify
 from flask import render_template
+import flask
 from flask.wrappers import Request
 from flaskext import mysql
 from flask import request
@@ -17,6 +18,7 @@ mysql = mysql.MySQL(app, prefix="mysql1", host='localhost',
 mysql.init_app(app)
 
 # Settings
+
 app.secret_key = 'mysecretkey'
 
 
@@ -52,8 +54,36 @@ def addcpk():
         cursor = mysql.get_db().cursor()
         cursor.execute(
             'INSERT INTO `cpk-resultst`(`Button`, `seat`, `cpk`) VALUES (%s,%s,%s)', (button, seat, cpk))
-        flash('Resultado añadido correctamente')
+        flash('Resultado añadido correctamente','alert alert-primary')
     return redirect(url_for('addcpk'))
+
+@app.route('/delete/<string:id>')
+def delete(id):
+    cursor = mysql.get_db().cursor()
+    cursor.execute('DELETE FROM `cpk-resultst` WHERE `id`={0}'.format(id))
+    flash('borrado','alert alert-danger alert-dismissible fade show')
+    return redirect(url_for('tablas'))
+
+@app.route('/edit/<string:id>')
+def edit(id):
+    cursor = mysql.get_db().cursor()
+    cursor.execute('SELECT * FROM `cpk-resultst` WHERE `id`={0}'.format(id))
+    data= cursor.fetchall()
+    print(data[0])
+    return render_template('Formulario_update.html',resultado=data[0])
+
+@app.route('/update/<string:id>', methods=['POST'])
+def update(id):
+    if request.method == 'POST':
+        Button=request.form ['Button']
+        seat=request.form ['seat']
+        cpk=request.form ['cpk']
+        cursor = mysql.get_db().cursor()
+        cursor.execute('UPDATE `cpk-resultst` SET `Button`=%s,`seat`=%s,`cpk`=%s WHERE `id`=%s',(Button,seat,cpk,id))
+        flash('modificado','alert alert-warning alert-dismissible fade show')
+        return redirect(url_for('tablas'))
+
+    
 
 
 if __name__ == '__main__':
