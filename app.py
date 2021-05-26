@@ -2,7 +2,6 @@
 from flask import Flask, url_for, redirect, flash
 from flask import jsonify
 from flask import render_template
-import flask
 from flask.wrappers import Request
 from flaskext import mysql
 from flask import request
@@ -13,8 +12,8 @@ app = Flask(__name__)
 
 # MYSQL
 
-mysql = mysql.MySQL(app, prefix="mysql1", host='localhost',
-                    user='root', password='Guillermo11', db='cpk', autocommit=True)
+mysql = mysql.MySQL(app, prefix="mysql",
+                    user='root', password='Guillermo11', db='cpk', port="3306", autocommit=True)
 mysql.init_app(app)
 
 # Settings
@@ -88,4 +87,4 @@ def update(id):
 
 if __name__ == '__main__':
     # debug true lo que hace es que cada vez que cambie algo se reinicia
-    app.run(debug=True, port=4000)
+    app.run(debug=True, host='0.0.0.0')

@@ -1,0 +1,36 @@
+version: "3.8"
+services: 
+    backend:
+        build: 
+            context: .
+            dockerfile: dockerfile
+        ports: 
+            - 3000:5000
+        volumes: 
+            - .:/app
+        depends_on: 
+            - db
+
+    db:
+        image: "mysql:5.7"
+        restart: always
+        ports: 
+            - 23306:3306
+        environment: 
+            MYSQL_ROOT_PASSWORD: "Guillermo11"
+            MYSQL_DATABASE: "cpk"
+            MYSQL_USER: "user"
+            MYSQL_PASSWORD: "Guillermo11"
+        volumes:
+            - ./schemas:/var/lib/mysql:rw   
+        networks:
+            mysql_network:
+                aliases: 
+                    - mysql_host
+volumes: 
+    schemas: {}
+networks:
+    mysql_network:
+        name: mysql_net
+        driver: bridge
+
