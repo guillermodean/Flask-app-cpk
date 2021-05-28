@@ -13,7 +13,7 @@ app = Flask(__name__)
 # MYSQL
 
 mysql = mysql.MySQL(app, prefix="mysql",
-                    user='root', password='Guillermo11', db='cpk', port="3306", autocommit=True)
+                    user='calidad', password='Pamp3701', db='opcua_client_db', port="3306", host="10.73.83.220", autocommit=True)
 mysql.init_app(app)
 
 # Settings
@@ -34,7 +34,7 @@ def graficas():
 @app.route('/templates/tablas')
 def tablas():
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT `id`, `Button`, `seat`, `cpk` FROM `cpk-resultst`')
+    cursor.execute('SELECT * FROM opcua_client_db.results_cpk_ ORDER BY Id DESC;')
     data = cursor.fetchall()
     return render_template('tabla.html', resultados=data)
 
