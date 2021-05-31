@@ -17,3 +17,20 @@ body{
     margin-right: 2%;
 }
 
+.carousel .carousel-inner{
+    height:500px
+    }
+    .carousel-inner .carousel-item img{
+    background-color: #3f3f3f;
+    min-height:200px;
+    max-height: 500px;
+    /* prevent it from stretch in screen size < than 500*/
+    object-fit:contain;
+    }
+    
+    @media(max-width:768px){
+    .carousel .carousel-inner{
+    /*prevent it from adding a white space between carousel and container elements*/
+    height:auto;
+     }
+    }
