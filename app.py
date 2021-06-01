@@ -5,9 +5,6 @@ from flask import render_template,send_from_directory
 from flask.wrappers import Request
 from flaskext import mysql
 from flask import request
-from dash import Dash
-import dash_core_components as dcc
-import dash_html_components as html
 
 
 app = Flask(__name__)

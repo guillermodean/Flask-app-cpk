@@ -46,4 +46,7 @@ for i in range(13):
         ax1 = sns.boxplot(ax=axes[1], data=databoxplot,
                           x='familia', y=('Button' + str(a) + '_Value'))
         ax2.legend()
-plt.show()
+        my_file = 'fgraph+' + str(i) + '.png'
+        # plt.show()
+        fig.savefig('assets/cpkfamily/' + my_file)
+
