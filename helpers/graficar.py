@@ -25,7 +25,7 @@ def graficar(mean, Button, cpk_sql, cp_sql, recuento, dataf, data, toli, tols, f
         # directory moves around.
         my_file = 'graph+' + str(n) + '.png'
         # plt.show()
-        fig.savefig('graphs/' + my_file)
+        fig.savefig('/static/graphs/' + my_file)
 
     else:
         print('No data' + Button)
