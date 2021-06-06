@@ -25,12 +25,13 @@ The front end can be accessed through the URL: http://10.73.83.220/7qbs/*
 The Cp index is calculated using specification limits and the standard deviation only. This index indicates, in general, whether the process is capable of producing products to specifications. No information on the ability of the process to adhere to the target value is included in this index.
 The formula for Cp is as follows:
 
-![alt text](https://github.com/guillermodean/Flask-app-cpk/blob/R-API-CPK/cp.jpg?raw=true)
+![alt text](https://github.com/guillermodean/Flask-app-cpk/blob/R-API-CPK/static/img/cp.jpg?raw=true)
 
 ####Cpk
 This Cpk index is calculated using specification limits, the standard deviation, and the mean. The index indicates whether the process is capable of producing within specification and is also an indicator of the ability of the process to adhere to the target specification.
 The formula for Cpk is as follows:
 
+![alt text](https://github.com/guillermodean/Flask-app-cpk/blob/R-API-CPK/static/img/cpk.jpg?raw=true)
 
 
 ## Desarrollo
