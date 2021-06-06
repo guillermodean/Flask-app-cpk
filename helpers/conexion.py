@@ -1,19 +1,21 @@
 import mysql.connector as mysql
 import json
 
-ENTORNO = "produccion"
+ENTORNO = "LOCAL"
 
-with open('./helpers/config.json', 'r') as file:
+with open('../config.json', 'r') as file:
     config = json.load(file)
 
-usuario = config[ENTORNO]['user']
-contraseña = config[ENTORNO]['password']
+usuario = config[ENTORNO]['USER']
+contraseña = config[ENTORNO]['PASS']
+server=config[ENTORNO]['HOST']
+database=config[ENTORNO]['DATABASE']
 
 
 def conexion():
     try:
-        db = mysql.connect(host='10.73.83.220', user=usuario,
-                           password=contraseña, db='opcua_client_db')
+        db = mysql.connect(host=server, user=usuario,
+                           password=contraseña, db=database)
         print("conectado")
 
     except mysql.Error as err:

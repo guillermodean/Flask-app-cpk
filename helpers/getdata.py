@@ -11,7 +11,7 @@ def getdata(n, db, modelo):
     query_select_mysql_nm = 'SELECT Button' + str(
         n) + '_Value FROM opcua_client_db.test_result ORDER BY Id DESC limit 50'
     query = querys(modelo, query_select_mysql, query_select_mysql_nm)
-    data = pd.read_sql(query, con=db)
+    data = pd.read_sql(query, con=db)  #TODO comprobar si funciona en ISRI => lanzar el script de calculo cpk ahora dentro de helpers
     data.columns = ['valores']
     dataf = filtrar(data)
 

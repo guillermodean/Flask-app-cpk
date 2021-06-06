@@ -1,13 +1,37 @@
 {% extends "layout.html" %}
 {% block content %}
-
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+    <div role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 <div class="p-5 m-4 bg-light rounded-3">
     <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">Visualizacion estadistica cpks</h1>
         <p class="col-md-8 fs-4">Python web app para visualizar tanto las tablas como las graficas del calculod de
             cpks
             de la máquina de esfuerzos. Creada para hacer seguimiento de los resultados y ver las tendencias</p>
-        <button class="btn btn-warning btn-lg" type="button">Al turron</button>
+        <button class="btn btn-warning btn-lg" type="button">
+            <a  href="{{url_for('graficas')}}">Graficas</a>
+        </button>
+    </div>
+</div>
+<div class="p-5 m-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h3 class="display-5 fw-bold">Lanzar Script</h3>
+        <p class="col-md-8 fs-4">Al pulsar el botón se ejecuta el script que conecta a la BBDD del cliente OPC que opera los resultados de la máquina de esfuerzos
+            </p>
+        <form action="/run-script" method="POST">
+            <button class="btn btn-warning btn-lg" type="button">
+            Script
+        </button>
+        </form>
+
     </div>
 </div>
 

@@ -11,18 +11,38 @@
 {% endif %}
 {% endwith %}
 <div class="container align-self-center m-4 p-2">
-    <form action="/añadir_cpk" method="POST">
+    <form action="añadir_cpk" method="POST">
         <div class="form-group">
             <label for="id">Introduce el boton</label>
-            <input type="text" name="Button" placeholder="Boton" id="Button" class="form-control">
+            <input type="text" name="Date" placeholder="Fecha" id="Date" class="form-control">
         </div>
         <div class="form-group">
-            <label for="seat">Introduce el modelo del asiento</label>
-            <input type="text" name="seat" placeholder="modelo" id="seat" class="form-control">
+            <label for="id">Introduce el modelo del asiento</label>
+            <input type="text" name="Button" placeholder="Palanca" id="Button" class="form-control">
         </div>
         <div class="form-group">
-            <label for="cpk">Introduce el resultado cpk</label>
-            <input type="text" name="cpk" placeholder="resultado" id="cpk" class="form-control">
+            <label for="id">Introduce el resultado cpk</label>
+            <input type="text" name="Media" placeholder="Media" id="Media" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="id">Introduce el boton</label>
+            <input type="text" name="Tol_inf" placeholder="Tol_inf" id="Tol_inf" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="id">Introduce el boton</label>
+            <input type="text" name="Tol_sup" placeholder="Tol_sup" id="Tol_sup" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="id">Introduce el boton</label>
+            <input type="text" name="cp" placeholder="cp" id="cp" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="id">Introduce el boton</label>
+            <input type="text" name="cpk" placeholder="cpk" id="cpk" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="id">Introduce el boton</label>
+            <input type="text" name="modelo" placeholder="modelo" id="modelo" class="form-control">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary mt-5">enviar</button>

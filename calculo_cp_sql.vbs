@@ -1,1 +1,0 @@
-CreateObject("Wscrip.Shell").Run "C:\Users\g.dean\PycharmProjects\cpk_study\calculo_cp_sql.bat",0,True
