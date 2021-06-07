@@ -1,9 +1,9 @@
 import mysql.connector as mysql
 import json
 
-ENTORNO = "LOCAL"
+ENTORNO = "PRODUCCION"
 
-with open('../config.json', 'r') as file:
+with open('config.json', 'r') as file:
     config = json.load(file)
 
 usuario = config[ENTORNO]['USER']

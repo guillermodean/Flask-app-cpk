@@ -5,7 +5,7 @@ from flask import request
 import json
 from helpers import calculo_cp_sql
 
-ENTORNO = "LOCAL"  # produccion
+ENTORNO = "PRODUCCION"  # produccion
 
 ####### Obtener las variables de acceso #######
 
@@ -83,8 +83,11 @@ def delete(id):
 
 @app.route('/run-script')
 def run_script():
-    message = calculo_cp_sql.run_cpk_script()  # TODO ver si la mierda de flask puede llamar al script como estoy haciendo ahora
-    flash(message)
+    try:
+        message = calculo_cp_sql.run_cpk_script()  # TODO ver si la mierda de flask puede llamar al script como estoy haciendo ahora
+        flash(message)
+    except TypeError:
+        print("la movida es: "+TypeError)
     return redirect(url_for('tablas'))
 
 

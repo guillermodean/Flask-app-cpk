@@ -8,8 +8,6 @@ from helpers.graficar import graficar
 from helpers.Tendencia_CPK import tendenciacpk
 import time
 
-
-
 def run_cpk_script():
     while True:
 
@@ -80,4 +78,3 @@ def run_cpk_script():
         except ValueError:
             print('error total' + ValueError)
             return "fracaso"
-run_cpk_script()
