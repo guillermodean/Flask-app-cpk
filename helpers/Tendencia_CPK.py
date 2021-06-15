@@ -19,4 +19,4 @@ def tendenciacpk(db, n):
     plt.plot(x, z, color='red', linestyle='--')
     my_file = 'tgraph+' + str(n) + '.png'
     # plt.show()
-    fig.savefig('assets/tcpk' + my_file)
+    fig.savefig('static/graphs/' + my_file)

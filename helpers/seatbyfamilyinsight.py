@@ -48,5 +48,5 @@ for i in range(13):
         ax2.legend()
         my_file = 'fgraph+' + str(i) + '.png'
         # plt.show()
-        fig.savefig('assets/cpkfamily/' + my_file)
+        fig.savefig('static/graphs/' + my_file)
 
